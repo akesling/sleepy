@@ -8,13 +8,13 @@ Sleepy is a micro-framework for building RESTful APIs.
 package main
 
 import (
-    "net/url"
-    "github.com/dougblack/sleepy"
+    "net/http"
+    "github.com/akesling/sleepy"
 )
 
 type Item struct { }
 
-func (item Item) Get(values url.Values) (int, interface{}) {
+func (item Item) Get(request http.Request) (int, interface{}) {
     items := []string{"item1", "item2"}
     data := map[string][]string{"items": items}
     return 200, data
